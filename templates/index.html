@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔗 URL Shortener</h1>
+    <p>Paste your long URL below and get a short link instantly.</p>
+
+    <form method="POST">
+        <input
+            type="url"
+            name="long_url"
+            placeholder="https://example.com"
+            required>
+
+        <button type="submit">Shorten URL</button>
+    </form>
+
+    {% if short_url %}
+    <div class="result">
+        <h3>Your Short URL</h3>
+        <p>
+            <a href="http://127.0.0.1:5000/{{ short_url }}" target="_blank">
+                http://127.0.0.1:5000/{{ short_url }}
+            </a>
+        </p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
